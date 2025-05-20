@@ -2,113 +2,215 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>BITY PARA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BITY PARA - Cosmétiques de Luxe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            max-width: 800px;
-            background: white;
-            color: black;
+            font-family: 'Roboto', sans-serif;
+            background: #fff5f7;
+            color: #2d2d2d;
+            line-height: 1.8;
         }
-        
-        /* العنوان الرئيسي مع الشريط الوردي */
-        h1 {
+
+        /* Container Magic */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Animation */
+        .header {
             text-align: center;
-            font-size: 28px;
-            border-bottom: 3px solid #ff69b4;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            padding: 4rem 0;
+            background: linear-gradient(45deg, #ff69b4, #ff8ebd);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 3rem;
         }
-        
-        /* رابط البابا */
-        .papa-link {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            margin: 10px 0 30px 0;
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
         }
-        
-        /* قائمة التنقل مع الحد الوردي */
-        .nav {
+
+        /* Navigation Glassmorphism */
+        .nav-bar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin: -50px auto 3rem;
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+        }
+
+        .nav-links {
             display: flex;
-            gap: 25px;
-            margin: 20px 0;
-            padding: 15px;
-            background: #fff0f5;
-            border-left: 4px solid #ff69b4;
+            justify-content: center;
+            gap: 2rem;
         }
-        
-        /* الأقسام ذات الحدود الوردية */
-        .section {
-            border: 2px solid #ff69b4;
-            padding: 15px;
-            margin: 15px 0;
-            background: white;
-        }
-        
-        /* السعر باللون الأسود الغامق */
-        .price {
-            color: black;
-            margin: 10px 0;
-            font-weight: bold;
-        }
-        
-        /* النجمة الوردية */
-        .star {
+
+        .nav-links a {
             color: #ff69b4;
-            font-size: 16px;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
-        
-        /* عناوين الأقسام */
-        h3, h4 {
-            color: black;
-            margin-bottom: 10px;
+
+        .nav-links a:hover {
+            background: #ff69b4;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Product Cards Hover Effect */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255,105,180,0.2);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, #ff69b455, transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .product-card:hover::before {
+            animation: shine 1.5s;
+        }
+
+        /* Price Tag Design */
+        .price-tag {
+            background: #ff69b4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Cart Section */
+        .cart-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #ffe5ee;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- العنوان الرئيسي -->
-    <h1>BITY PARA</h1>
-    <p class="papa-link">Sense num. la papa: www.bityparanica-palamenti.securite</p>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>BITY PARA</h1>
+        </header>
 
-    <!-- قائمة التنقل -->
-    <div class="nav">
-        <h3>Produits</h3>
-        <p>Panier</p>
-        <p>Mon Compte</p>
-        <p>Contact</p>
-    </div>
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="#products">Produits</a>
+                <a href="#cart">Panier</a>
+                <a href="#account">Mon Compte</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
 
-    <!-- قسم الشعار -->
-    <div class="section">
-        <h4>Chevetel en produit...</h4>
-    </div>
+        <!-- Products Section -->
+        <div class="product-card" id="products">
+            <h2>Creme Hydratante 🌸</h2>
+            <p>Une fusion révolutionnaire pour une hydratation profonde et lumineuse</p>
+            <div class="price-tag">120 DH</div>
+            <button class="add-to-cart">Ajouter au panier ➕</button>
+        </div>
 
-    <!-- المنتج 1 -->
-    <div class="section">
-        <h3>Creme Hydratante:</h3>
-        <p>Hybrale voire peau en profondeur.</p>
-        <p class="price">Prix: 120 DH</p>
-    </div>
+        <div class="product-card">
+            <h2>Sérum Vitamine C ✨</h2>
+            <p>Éclat immédiat et protection anti-âge ultime</p>
+            <div class="price-tag">180 DH</div>
+            <button class="add-to-cart">Ajouter au panier ➕</button>
+        </div>
 
-    <!-- سلة الشراء -->
-    <div class="section">
-        <h3>Panier:</h3>
-        <p>Creme Hydratante - 120 DH <span class="star">🌟</span></p>
-        <p>Tabel: 120 DH</p>
-    </div>
+        <!-- Cart Section -->
+        <div class="cart-section" id="cart">
+            <h2>Votre Panier 🛍️</h2>
+            <div class="cart-item">
+                <p>Creme Hydratante ×1 <span class="price-tag">120 DH</span></p>
+            </div>
+            <div class="total">
+                <h3>Total: <span class="price-tag">120 DH</span></h3>
+            </div>
+        </div>
 
-    <!-- المنتج 2 -->
-    <div class="section">
-        <h3>Seçum Vitamine C:</h3>
-        <p>Seçum Vitamine C</p>
-    </div>
-
-    <!-- حساب المستخدم -->
-    <div class="section">
-        <h3>Mon Compte:</h3>
-        <p>Mon Compte</p>
+        <!-- Account Section -->
+        <div class="product-card" id="account">
+            <h2>Espace Client 🔐</h2>
+            <form class="login-form">
+                <input type="email" placeholder="Votre email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter →</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
