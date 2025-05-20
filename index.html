@@ -2,86 +2,188 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>BITY PARA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BITY PARA - Cosmétiques</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        /* Styles généraux */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* En-tête */
         .header {
             text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #eee;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .papa-link {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
             margin-bottom: 30px;
         }
-        
-        .nav {
+
+        .nav-links {
             display: flex;
-            gap: 25px;
-            margin-bottom: 20px;
+            gap: 30px;
         }
-        
-        .section {
-            margin: 25px 0;
-            padding: 15px;
-            border: 1px solid #ddd;
+
+        .nav-links p {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
-        
-        .price {
-            color: #666;
+
+        .nav-links p:hover {
+            background: #ecf0f1;
+        }
+
+        /* Sections produits */
+        .product-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .product-title {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .price-tag {
+            color: #27ae60;
             font-weight: bold;
+            font-size: 1.2em;
+            margin: 15px 0;
         }
-        
-        .star {
-            color: gold;
-            font-size: 14px;
-        }
-        
-        .papa-link {
+
+        .special-offer {
+            color: #c0392b;
             font-size: 0.9em;
-            color: #444;
-            margin: 10px 0;
+        }
+
+        /* Panier */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .star-icon {
+            color: #f1c40f;
+            margin-left: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>BITY PARA</h1>
-        <p class="papa-link">Sense num. la papa: www.bityparanica-palamenti.securite</p>
-    </div>
+    <div class="container">
+        <!-- En-tête -->
+        <header class="header">
+            <h1>BITY PARA</h1>
+            <p class="papa-link">Sense num. la papa: www.bityparanica-palamenti.securite</p>
+        </header>
 
-    <div class="nav">
-        <h3>Produits</h3>
-        <p>Panier</p>
-        <p>Mon Compte</p>
-        <p>Contact</p>
-    </div>
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <h3>Produits</h3>
+            <div class="nav-links">
+                <p>Panier 🛒</p>
+                <p>Mon Compte 👤</p>
+                <p>Contact 📞</p>
+            </div>
+        </nav>
 
-    <div class="section">
-        <h4>Chevetel en produit...</h4>
-    </div>
+        <!-- Section promotion -->
+        <div class="product-section">
+            <h4 class="product-title">Chevetel en produit...</h4>
+        </div>
 
-    <div class="section">
-        <h3>Creme Hydratante</h3>
-        <p>Hybrale voire peau en profondeur.</p>
-        <p class="price">Prix: 120 DH</p>
-    </div>
+        <!-- Produit 1 -->
+        <div class="product-section">
+            <h3 class="product-title">Creme Hydratante</h3>
+            <p>Hybrale voire peau en profondeur.</p>
+            <p class="price-tag">Prix: 120 DH</p>
+            <button class="add-to-cart">Ajouter au panier</button>
+        </div>
 
-    <div class="section">
-        <h3>Panier:</h3>
-        <p>Creme Hydratante - 120 DH <span class="star">🌟</span></p>
-        <p>Tabel: 120 DH</p>
-    </div>
+        <!-- Panier -->
+        <div class="product-section">
+            <h3 class="product-title">Panier</h3>
+            <div class="cart-item">
+                <span>Creme Hydratante - 120 DH</span>
+                <span class="star-icon">🌟</span>
+            </div>
+            <div class="cart-total">
+                <p class="price-tag">Total: 120 DH</p>
+            </div>
+        </div>
 
-    <div class="section">
-        <h3>Seçum Vitamine C:</h3>
-        <p>Seçum Vitamine C</p>
-    </div>
+        <!-- Produit 2 -->
+        <div class="product-section">
+            <h3 class="product-title">Seçum Vitamine C</h3>
+            <p>Seçum Vitamine C</p>
+            <p class="price-tag">Prix: 150 DH</p>
+            <p class="special-offer">(Offre spéciale -20%)</p>
+            <button class="add-to-cart">Ajouter au panier</button>
+        </div>
 
-    <div class="section">
-        <h3>Mon Compte:</h3>
-        <p>Mon Compte</p>
+        <!-- Compte utilisateur -->
+        <div class="product-section">
+            <h3 class="product-title">Mon Compte</h3>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
